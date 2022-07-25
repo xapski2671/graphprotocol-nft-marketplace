@@ -1,0 +1,31 @@
+type ActiveItem @entity { # the table itself
+  id: ID! # ! means it cannot be null ID is its type
+  buyer: Bytes! # Address will be 0x000... if there's no buyer
+  seller: Bytes!
+  nftAddress: Bytes!
+  tokenId: BigInt! # bigint is for numbers
+  price: BigInt # no ! means it can be null
+}
+
+type ItemListed @entity {
+  id: ID!
+  seller: Bytes!
+  nftAddress: Bytes!
+  tokenId: BigInt!
+  price: BigInt
+}
+
+type ItemRemoved @entity {
+  id: ID!
+  seller: Bytes!
+  nftAddress: Bytes!
+  tokenId: BigInt!
+}
+
+type ItemBought @entity {
+  id: ID!
+  buyer: Bytes!
+  nftAddress: Bytes!
+  tokenId: BigInt!
+  price: BigInt
+}
